@@ -1,15 +1,52 @@
 body {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  padding: 1rem;
+  font-family: Open-sans, sans-serif;
 }
 
 table {
-    border-collapse: collapse;
-  }
-  
-  td, th {
-    border: 1px solid #999;
-    padding: 0.5rem;
-    text-align: left;
-  }
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+form {
+  display: flex;
+  max-width: 550px;
+  width: 100%;
+  gap: 20px;
+}
+
+.form__inputs {
+  display: flex;
+  flex-direction: column;
+  width: 470px;
+}
+
+input {
+  height: 25px;
+}
+
+button {
+  height: 100;
+  width: 200px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+h3 {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}

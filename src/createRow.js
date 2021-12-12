@@ -27,3 +27,4 @@ export function addRow(tableId, data) {
     // tyle razy ile jest KLUCZY w data chcemy utworzyć td
     // Chcemy zeby ta funkcja dodawala wiersz do wskazanej tabeli 
 }
+
