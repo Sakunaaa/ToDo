@@ -29,7 +29,7 @@ export default class Todo {
       .from("items")
       .insert([{ title, description, priority }]);
 
-    return { status: result.status };
+    return result;
   }
 
   async checkItem({ id }) {
