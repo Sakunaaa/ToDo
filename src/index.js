@@ -1,7 +1,7 @@
 import Todo from "./api";
 import {
     addRow
-} from "./createRow"
+} from "./table"
 
 const api = new Todo();
 
