@@ -2,6 +2,7 @@ export function addActionsColumn(row, data) {
     const actionsColumn = document.createElement("td")
     const actionsCheckBox = document.createElement("input")
     actionsCheckBox.type = "checkbox"
+    actionsCheckBox.name = "checkbox" 
     if (data.done === true) {
         actionsCheckBox.checked = true 
     }

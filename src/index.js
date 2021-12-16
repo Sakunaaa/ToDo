@@ -46,6 +46,12 @@ form.addEventListener("submit", (e) => {
     })
 })
 
+const checkboxes = document.getElementsByName("checkbox");
+
+checkboxes.addEventListener("change", (e) => {
+    e.preventDefault()
+    console.log(e)
+})
 // Chcemy, zeby po kliknieciu w checkbox (obojetnie jaki) uruchamiala się funkcja checkItem/uncheckItem z api.js
 
 // Jezeli jest checkniety, przenies go na sam dol
