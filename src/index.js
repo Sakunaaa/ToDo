@@ -45,3 +45,8 @@ form.addEventListener("submit", (e) => {
         })
     })
 })
+
+// Chcemy, zeby po kliknieciu w checkbox (obojetnie jaki) uruchamiala się funkcja checkItem/uncheckItem z api.js
+
+// Jezeli jest checkniety, przenies go na sam dol
+// Jezeli nie jest checkniety, to ma byc checkniety

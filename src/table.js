@@ -1,7 +1,10 @@
-export function addActionsColumn(row) {
+export function addActionsColumn(row, data) {
     const actionsColumn = document.createElement("td")
     const actionsCheckBox = document.createElement("input")
     actionsCheckBox.type = "checkbox"
+    if (data.done === true) {
+        actionsCheckBox.checked = true 
+    }
     actionsColumn.appendChild(actionsCheckBox)
     row.appendChild(actionsColumn)
 }
@@ -15,6 +18,11 @@ export function addRow(tableId, data) {
         td.appendChild(text)
         tr.appendChild(td)
     })
-    addActionsColumn(tr)
+
+    if (data.done === true) {
+        tr.classList.add("checked") 
+    }
+    // Jezeli data.done === true, to cos tam
+    addActionsColumn(tr, data)
     table.appendChild(tr)
 }

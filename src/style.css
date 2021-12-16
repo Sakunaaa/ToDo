@@ -54,3 +54,8 @@ h3 {
 .dupa {
   accent-color: green;
 }
+
+.checked {
+  color: #999; 
+  text-decoration: line-through;
+}
