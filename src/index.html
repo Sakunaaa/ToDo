@@ -14,7 +14,10 @@
 
 <body>
     <main>
-        <h1>Supabase</h1>
+        <header>
+            <h1>Supabase</h1>
+            <button id="addNewTask-btn">Add a new task</button>
+        </header>
         <section class="container">
             <table>
                 <thead>
@@ -30,18 +33,22 @@
                 <tbody id="table">
                 </tbody>
             </table>
-            <h3>Add new task</h3>
-            <form id="newTask-form" class="form">
-                <div class="form__inputs">
-                    <label for="Title">Title</label>
-                    <input name="Title" type="text">
-                    <label for="Description">Description</label>
-                    <input name="Description" type="text">
-                    <label for="Priority">Priority</label>
-                    <input name="Priority" type="Number">
+            <dialog id="modal">
+                <div id="modal-content">
+                    <h3>Add new task</h3>
+                    <form id="newTask-form" class="form">
+                        <div class="form__inputs">
+                            <label for="Title">Title</label>
+                            <input name="Title" type="text">
+                            <label for="Description">Description</label>
+                            <input name="Description" type="text">
+                            <label for="Priority">Priority</label>
+                            <input name="Priority" type="Number">
+                        </div>
+                        <button>Submit</button>
+                    </form>
                 </div>
-                <button>Submit</button>
-            </form>
+            </dialog>
         </section>
     </main>
 

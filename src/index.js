@@ -46,13 +46,34 @@ form.addEventListener("submit", (e) => {
     })
 })
 
-const checkboxes = document.getElementsByName("checkbox");
+// const checkboxes = document.getElementsByName("checkbox");
 
-checkboxes.addEventListener("change", (e) => {
-    e.preventDefault()
-    console.log(e)
-})
+// checkboxes.addEventListener("change", (e) => {
+//     e.preventDefault()
+//     console.log(e)
+// })
 // Chcemy, zeby po kliknieciu w checkbox (obojetnie jaki) uruchamiala się funkcja checkItem/uncheckItem z api.js
 
 // Jezeli jest checkniety, przenies go na sam dol
 // Jezeli nie jest checkniety, to ma byc checkniety
+const button = document.getElementById("addNewTask-btn");
+const modal = document.getElementById("modal");
+const modalContent = document.getElementById("modal-content")
+
+button.addEventListener("click", () => {
+    modal.showModal();
+});
+
+document.addEventListener(
+    "click",
+    (e) => {
+        const withinModalBoundaries = e.composedPath().includes(modalContent)
+        const withinButtonBoundaries = e.composedPath().includes(button)
+        const isModalOpen = modal.open
+
+        if (!withinModalBoundaries && isModalOpen && !withinButtonBoundaries) {
+            modal.close()
+        }
+    },
+    false
+)

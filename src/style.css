@@ -56,6 +56,30 @@ h3 {
 }
 
 .checked {
-  color: #999; 
+  color: #999;
   text-decoration: line-through;
+}
+
+header {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+#addNewTask-btn {
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+dialog::backdrop {
+  background-color: black;
+  opacity: 0.75;
+}
+
+#modal-content {
+  padding: 2rem;
+}
+
+dialog {
+  padding: 0px;
 }
