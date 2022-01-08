@@ -5,18 +5,6 @@ import {
 
 const api = new Todo();
 
-api.fetchItems().then((data) => {
-    for (const item of data) {
-        addRow("table", {
-            id: item.id,
-            title: item.title,
-            description: item.description,
-            done: item.done,
-            priority: item.priority
-        })
-    }
-});
-
 const form = document.getElementById("newTask-form")
 
 form.addEventListener("submit", (e) => {
@@ -34,7 +22,6 @@ form.addEventListener("submit", (e) => {
     }
 
     api.addItem(params).then((result) => {
-        // Akcja zakonczyla sie sukcesem!
         const item = result.data[0]
         addRow("table", {
             id: item.id,
@@ -46,12 +33,6 @@ form.addEventListener("submit", (e) => {
     })
 })
 
-// const checkboxes = document.getElementsByName("checkbox");
-
-// checkboxes.addEventListener("change", (e) => {
-//     e.preventDefault()
-//     console.log(e)
-// })
 // Chcemy, zeby po kliknieciu w checkbox (obojetnie jaki) uruchamiala się funkcja checkItem/uncheckItem z api.js
 
 // Jezeli jest checkniety, przenies go na sam dol
@@ -77,3 +58,38 @@ document.addEventListener(
     },
     false
 )
+
+api.fetchItems().then((data) => {
+    for (const item of data) {
+        addRow("table", {
+            id: item.id,
+            title: item.title,
+            description: item.description,
+            done: item.done,
+            priority: item.priority
+        })
+    }
+    
+    document.addEventListener("click", (e) => {
+        // 1. rejestrujemy klikniecia na calym documencie, a chcemy tylko na checkboxach
+        // 2. kiedy juz mamy same checkboxy, sprawdzamy czy klikniety checkbox jest checked/unchecked
+        const name = e.target.name
+        if (name === "checkbox") {
+            const isChecked = e.target.checked 
+            const rowElement = e.target.parentElement.parentElement
+            const idElement = rowElement.children[0] 
+            const id = idElement.innerText
+            console.log(id)
+            if (isChecked) {
+                api.checkItem({id})
+            } else {
+                api.uncheckItem({id})
+            }
+        }
+    })  
+});
+
+
+
+// todo:
+// 1. check/uncheck na kliknięcie w checkbox
