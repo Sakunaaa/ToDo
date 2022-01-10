@@ -92,4 +92,5 @@ api.fetchItems().then((data) => {
 
 
 // todo:
-// 1. check/uncheck na kliknięcie w checkbox
+// 1. dodaj przycisk z ikonką 🗑️ do actions kazdego wiersza w tabeli
+// 2. 

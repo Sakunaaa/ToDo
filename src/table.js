@@ -1,12 +1,16 @@
 export function addActionsColumn(row, data) {
     const actionsColumn = document.createElement("td")
     const actionsCheckBox = document.createElement("input")
+    const deleteButton = document.createElement("button")
+    const trashIcon = document.createTextNode("🗑️")
     actionsCheckBox.type = "checkbox"
     actionsCheckBox.name = "checkbox" 
     if (data.done === true) {
         actionsCheckBox.checked = true 
     }
     actionsColumn.appendChild(actionsCheckBox)
+    deleteButton.appendChild(trashIcon)
+    actionsColumn.appendChild(deleteButton)
     row.appendChild(actionsColumn)
 }
 
