@@ -1,6 +1,6 @@
 import Todo from "./api";
 import {
-    addRow
+    addRow, hideTableLoader, showTableLoader
 } from "./table"
 
 const api = new Todo();
@@ -59,36 +59,55 @@ document.addEventListener(
     false
 )
 
-api.fetchItems().then((data) => {
-    for (const item of data) {
-        addRow("table", {
-            id: item.id,
-            title: item.title,
-            description: item.description,
-            done: item.done,
-            priority: item.priority
-        })
-    }
-    
-    document.addEventListener("click", (e) => {
-        // 1. rejestrujemy klikniecia na calym documencie, a chcemy tylko na checkboxach
-        // 2. kiedy juz mamy same checkboxy, sprawdzamy czy klikniety checkbox jest checked/unchecked
-        const name = e.target.name
-        if (name === "checkbox") {
-            const isChecked = e.target.checked 
-            const rowElement = e.target.parentElement.parentElement
-            const idElement = rowElement.children[0] 
-            const id = idElement.innerText
-            console.log(id)
-            if (isChecked) {
-                api.checkItem({id})
-            } else {
-                api.uncheckItem({id})
-            }
+// tutaj pobierane są itemy z bazy danych
+api.fetchItems()
+    .then((data) => {
+        for (const item of data) {
+            addRow("table", {
+                id: item.id,
+                title: item.title,
+                description: item.description,
+                done: item.done,
+                priority: item.priority
+            })
         }
-    })  
-});
+        
+        hideTableLoader()
 
+        document.addEventListener("click", (e) => {
+            // 1. rejestrujemy klikniecia na calym documencie, a chcemy tylko na checkboxach
+            // 2. kiedy juz mamy same checkboxy, sprawdzamy czy klikniety checkbox jest checked/unchecked
+            const name = e.target.name
+            if (name === "checkbox") {
+                const isChecked = e.target.checked 
+                const rowElement = e.target.parentElement.parentElement
+                const idElement = rowElement.children[0] 
+                const id = idElement.innerText
+                if (isChecked) {
+                    api.checkItem({id})
+                } else {
+                    api.uncheckItem({id})
+                }
+            }
+        })  
+    })
+    .catch(error => {
+        console.log(error)
+        hideTableLoader()
+    })
+
+document.addEventListener("click", (e) => {
+    const name = e.target.name 
+    if (name === "delete") {
+        // tutaj "wykrywamy" kliknięcie w smietniczek, więc tutaj chcemy pokazać loader
+        const rowElement = e.target.parentElement.parentElement 
+        const idElement = rowElement.children[0]
+        const id = idElement.innerText
+
+        // ale gdzie chcemy schować loader?
+        api.deleteItem({id})
+    }
+})
 
 
 // todo:

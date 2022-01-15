@@ -83,3 +83,13 @@ dialog::backdrop {
 dialog {
   padding: 0px;
 }
+
+[name="delete"] {
+  width: 50px;
+  height: 30px;
+} 
+
+.actionsColumn {
+  display: flex;
+  justify-content: space-around;
+}
