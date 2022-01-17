@@ -1,7 +1,9 @@
+const TRASH_ICON = "🗑️"
+
 const createDeleteButton = () => {
     // <img src="logo.svg" alt="logo" />
     const deleteButton = document.createElement("button")
-    const trashIcon = document.createTextNode("🗑️")
+    const trashIcon = document.createTextNode(TRASH_ICON)
 
     deleteButton.appendChild(trashIcon)
     deleteButton.name = "delete"
@@ -54,8 +56,19 @@ const hideTableLoader = () => {
     loader.style.display = "none"
 }
 
+// button = element HTML
+const showDeleteButtonLoader = (button) => {
+    button.innerText = "..."
+}
+
+const hideDeleteButtonLoader = (button) => {
+    button.innerText = TRASH_ICON
+}
+
 export {
     showTableLoader, 
     hideTableLoader, 
     addRow,
+    showDeleteButtonLoader,
+    hideDeleteButtonLoader,
 }

@@ -5,6 +5,8 @@ const supabase = createClient(
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYzODk4NTQ0NCwiZXhwIjoxOTU0NTYxNDQ0fQ.uUaqJLBaY7KIobBqiUpexUxGwe1EkUxpKzaMcKUgV20"
 );
 
+// CRUD
+
 export default class Todo {
   constructor() {
     this.items = [];

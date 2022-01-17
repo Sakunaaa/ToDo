@@ -1,6 +1,6 @@
 import Todo from "./api";
 import {
-    addRow, hideTableLoader, showTableLoader
+    addRow, hideTableLoader, showTableLoader, showDeleteButtonLoader, hideDeleteButtonLoader,
 } from "./table"
 
 const api = new Todo();
@@ -99,17 +99,25 @@ api.fetchItems()
 document.addEventListener("click", (e) => {
     const name = e.target.name 
     if (name === "delete") {
+        const button = e.target 
+        showDeleteButtonLoader(button)
         // tutaj "wykrywamy" kliknięcie w smietniczek, więc tutaj chcemy pokazać loader
-        const rowElement = e.target.parentElement.parentElement 
+        const rowElement = e.target.parentElement.parentElement
         const idElement = rowElement.children[0]
         const id = idElement.innerText
 
         // ale gdzie chcemy schować loader?
-        api.deleteItem({id})
+        api.deleteItem({ id }).then(() => {
+            hideDeleteButtonLoader(button)
+            rowElement.remove()
+        })
+        .catch(() => {
+            hideDeleteButtonLoader(button)
+        })
     }
 })
 
 
 // todo:
 // 1. dodaj przycisk z ikonką 🗑️ do actions kazdego wiersza w tabeli
-// 2. 
+// 2. po nacisnieciu "submit" zamknij modala 
