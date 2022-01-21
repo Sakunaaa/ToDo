@@ -59,10 +59,20 @@ document.addEventListener(
     false
 )
 
+const compareItems = (firstItem, secondItem) =>  {
+    if (firstItem.done === false && secondItem.done === true)
+       return -1
+    if (firstItem.done === true && secondItem.done === false)
+       return 1
+    
+    return 0
+ }
+
 // tutaj pobierane są itemy z bazy danych
 api.fetchItems()
     .then((data) => {
-        for (const item of data) {
+        const sortedItems = data.sort(compareItems)
+        for (const item of sortedItems) {
             addRow("table", {
                 id: item.id,
                 title: item.title,
@@ -84,9 +94,16 @@ api.fetchItems()
                 const idElement = rowElement.children[0] 
                 const id = idElement.innerText
                 if (isChecked) {
-                    api.checkItem({id})
-                } else {
-                    api.uncheckItem({id})
+                    api.checkItem({id}).then(() => {
+                        const row = rowElement.cloneNode(true)
+                        rowElement.parentElement.appendChild(row)
+                        rowElement.remove()
+                        // zadanie domowe: niech sie od razu skresla, odkresla
+                    })
+                } else { 
+                    api.uncheckItem({id}).then(() => {
+
+                    })
                 }
             }
         })  
