@@ -13,6 +13,10 @@
     "parcel": "^2.0.1"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^1.29.3"
+    "@supabase/supabase-js": "^1.29.3",
+    "autoprefixer": "^10.4.2",
+    "parcel": "^2.0.1",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.15"
   }
 }

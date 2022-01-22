@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   padding: 0;
   margin: 0;
@@ -34,12 +38,7 @@ input {
   height: 25px;
 }
 
-button {
-  height: 100;
-  width: 200px;
-}
-
-.container {
+.table_wrapper {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -68,11 +67,6 @@ header {
   align-items: center;
 }
 
-#addNewTask-btn {
-  padding: 10px;
-  text-transform: uppercase;
-}
-
 dialog::backdrop {
   background-color: black;
   opacity: 0.75;
@@ -96,7 +90,3 @@ dialog {
   justify-content: space-around;
 }
 
-main {
-  max-width: 1024px;
-  margin: 0 auto;
-}
