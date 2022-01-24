@@ -5,7 +5,7 @@ import {
 
 const api = new Todo();
 
-const form = document.getElementById("newTask-form")
+const form = document.getElementById("newTask_form")
 
 form.addEventListener("submit", (e) => {
     e.preventDefault()
