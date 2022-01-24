@@ -65,10 +65,22 @@ const hideDeleteButtonLoader = (button) => {
     button.innerText = TRASH_ICON
 }
 
+// const showSubmitButtonLoader = (button) => {
+//     button.innerText = "..."
+// }
+
+// const hideSubmitButtonLoader = (button) => {
+//     button.innerText = "Submit"
+// }
+
+
+
 export {
     showTableLoader, 
     hideTableLoader, 
     addRow,
     showDeleteButtonLoader,
     hideDeleteButtonLoader,
+    // showSubmitButtonLoader,
+    // hideSubmitButtonLoader,
 }

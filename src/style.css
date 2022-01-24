@@ -72,10 +72,6 @@ dialog::backdrop {
   opacity: 0.75;
 }
 
-#modal-content {
-  padding: 2rem;
-}
-
 dialog {
   padding: 0px;
 }
@@ -90,3 +86,6 @@ dialog {
   justify-content: space-around;
 }
 
+.form {
+  padding: 2rem;
+}

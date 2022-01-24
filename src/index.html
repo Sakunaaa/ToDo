@@ -37,10 +37,10 @@
             </table>
             <span id="loader">Loading...</span>
             <dialog id="modal">
-                <div id="modal-content">
-                    <h3>Add new task</h3>
+                <div>
                     <form id="newTask-form" class="form">
-                        <div class="form__inputs">
+                        <div id="modal-content" class="form__inputs">
+                            <h3>Add new task</h3>
                             <label for="Title">Title</label>
                             <input name="Title" type="text">
                             <label for="Description">Description</label>
@@ -48,7 +48,7 @@
                             <label for="Priority">Priority</label>
                             <input name="Priority" type="Number">
                         </div>
-                        <button>Submit</button>
+                        <button id="submit">Submit</button>
                     </form>
                 </div>
             </dialog>
