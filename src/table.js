@@ -6,7 +6,7 @@ const createDeleteButton = () => {
     const trashIcon = document.createTextNode(TRASH_ICON)
 
     deleteButton.appendChild(trashIcon)
-    deleteButton.name = "delete"
+    deleteButton.name = 'delete'
 
     return deleteButton
 }

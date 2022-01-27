@@ -27,7 +27,6 @@ form.addEventListener("submit", (e) => {
             id: item.id,
             title: item.title,
             description: item.description,
-            done: item.done,
             priority: item.priority
         })
     })
@@ -77,7 +76,6 @@ api.fetchItems()
                 id: item.id,
                 title: item.title,
                 description: item.description,
-                done: item.done,
                 priority: item.priority
             })
         }
@@ -93,15 +91,20 @@ api.fetchItems()
                 const rowElement = e.target.parentElement.parentElement
                 const idElement = rowElement.children[0] 
                 const id = idElement.innerText
+                const row = rowElement.cloneNode(true)
+
                 if (isChecked) {
                     api.checkItem({id}).then(() => {
-                        const row = rowElement.cloneNode(true)
                         rowElement.parentElement.appendChild(row)
                         rowElement.remove()
+                        row.classList.add("checked")
                         // zadanie domowe: niech sie od razu skresla, odkresla
                     })
                 } else { 
                     api.uncheckItem({id}).then(() => {
+                        rowElement.parentElement.prepend(row)
+                        rowElement.remove()
+                        row.classList.remove("checked")
 
                     })
                 }
@@ -125,8 +128,9 @@ document.addEventListener("click", (e) => {
 
         // ale gdzie chcemy schować loader?
         api.deleteItem({ id }).then(() => {
-            hideDeleteButtonLoader(button)
-            rowElement.remove()
+                hideDeleteButtonLoader(button)
+                        rowElement.remove()
+
         })
         .catch(() => {
             hideDeleteButtonLoader(button)
