@@ -12,16 +12,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-pink-100">
+<body>
     <main class="w-[60rem] mx-auto px-2">
         <header>
-            <h1 class="text-3xl font-bold underline">Supabase</h1>
-            <button id="addNewTask-btn" class="bg-red-300 px-4 py-2 rounded-lg ring-4 ring-red-600 uppercase text-sm">
+            <h1 class="logo">Supabase</h1>
+            <button id="addNewTask-btn">
                 Add a new task!
             </button>
         </header>
-        <section class="table_wrapper mt-4">
-            <table>
+        <section class="table_wrapper">
+            <table class="content-table">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -40,12 +40,24 @@
                     <form id="newTask-form" class="form">
                         <div id="modal-content" class="form__inputs">
                             <h3>Add new task</h3>
-                            <label for="Title">Title</label>
-                            <input name="Title" type="text">
-                            <label for="Description">Description</label>
-                            <input name="Description" type="text">
-                            <label for="Priority">Priority</label>
-                            <input name="Priority" type="Number">
+                            <div class="group">
+                                <input name="Title" type="text" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Title</label>
+                            </div>
+                            <div class="group">
+                                <input name="Description" type="text" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Description</label>
+                            </div>
+                            <div class="group">
+                                <input name="Priority" type="Number" required>
+                                <span class="highlight"></span>
+                                <span class="bar"></span>
+                                <label>Priority</label>
+                            </div>
                         </div>
                         <button id="submit">Submit</button>
                     </form>
