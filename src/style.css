@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --main-website-color: #009879;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -100,7 +104,7 @@ dialog {
 }
 
 .content-table thead tr {
-  background-color: #009879;
+  background-color: var(--main-website-color);
   color: #ffffff;
   text-align: left;
   font-weight: bold;
@@ -120,7 +124,7 @@ dialog {
 }
 
 .content-table tbody tr:last-of-type {
-  border-bottom: 2px solid #009879;
+  border-bottom: 2px solid var(--main-website-color);
 }
 
 /* -----------------------------------BUTTON----------------------------------- */
@@ -129,7 +133,7 @@ dialog {
   outline: 0;
   border: 0;
   cursor: pointer;
-  background: #009879;
+  background: var(--main-website-color);
   color: #ffffff;
   border-radius: 8px;
   padding: 14px 24px 16px;
@@ -144,7 +148,7 @@ dialog {
 }
 
 #submit {
-  background-color: #009879;
+  background-color: var(--main-website-color);
   display: inline-block;
   outline: 0;
   border: 0;
@@ -214,7 +218,7 @@ dialog {
 .group input:valid ~ label {
   top: -20px;
   font-size: 14px;
-  color: #009879;
+  color: var(--main-website-color);
 }
 
 .bar {
@@ -229,7 +233,7 @@ dialog {
   width: 0;
   bottom: 1px;
   position: absolute;
-  background: #009879;
+  background: var(--main-website-color);
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -264,7 +268,7 @@ dialog {
 
 @-webkit-keyframes inputHighlighter {
   from {
-    background: #009879;
+    background: var(--main-website-color);
   }
   to {
     width: 0;
@@ -273,7 +277,7 @@ dialog {
 }
 @-moz-keyframes inputHighlighter {
   from {
-    background: #009879;
+    background: var(--main-website-color);
   }
   to {
     width: 0;
@@ -282,7 +286,7 @@ dialog {
 }
 @keyframes inputHighlighter {
   from {
-    background: #009879;
+    background: var(--main-website-color);
   }
   to {
     width: 0;
